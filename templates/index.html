@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Messenger App</title>
+</head>
+<body>
+    <h1>Messenger App</h1>
+    <form action="/send" method="post">
+        <input type="text" name="username" placeholder="Your name" required>
+        <input type="text" name="message" placeholder="Type your message" required>
+        <button type="submit">Send</button>
+    </form>
+    <div class="messages">
+        <h2>Messages:</h2>
+        {% for msg in messages %}
+            <div><strong>{{ msg.username }}:</strong> {{ msg.message }}</div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
